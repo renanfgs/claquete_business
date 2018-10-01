@@ -1,5 +1,3 @@
-
-    
 //snippet Firebase Realtime Database
 var config = {
     apiKey: "AIzaSyDXEKD6kYZi3rCVnOevylXnHDbM8gDqemw",
@@ -11,9 +9,19 @@ var config = {
         };
     firebase.initializeApp(config);
         
-
 //reference messages collection
  var LeadsRef = firebase.database().ref("leads");
+
+ //função para pegar o IP
+(function() {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", 'https://api.ipify.org?format=json');
+    xmlhttp.send();
+    xmlhttp.onload = () => {
+        const {ip} = JSON.parse(xmlhttp.response);
+        document.getElementById('ip').value = ip;
+    }
+})();
 
 //listen
 document.getElementById("contactForm").addEventListener("submit",submitForm);
@@ -30,12 +38,9 @@ function LoadDate(d){
         
         ((parseInt(d.getSeconds())).toString().length==2?(parseInt(d.getSeconds())).toString():"0"+(parseInt(d.getSeconds())).toString());
         
-        
-        
         console.log(date_format_str);
         return date_format_str;
 }
-
 
 //Enviar o formulário
     function submitForm(e){
@@ -50,16 +55,12 @@ function LoadDate(d){
         console.log(date_format_str);
         
         //pegar o valor de IP aqui ??????????????????
-        //var ip=getIputVal("ip");
+        var ip=getIputVal("ip");
         
-        
-        //recebe o endereço de email e faz split apos o @
-        var dominio = email;
-        dominio = dominio.split("@");
-        console.log(dominio[1]);
-        
+        //split email e dominio
+        let [, dominio] = email.split("@");
         //testa dominios conhecidos para B2B ou B2C
-        if (dominio[1] == "gmail.com" || dominio[1] == "hotmail.com" || dominio[1] == "outlook.com" || dominio[1] == "live.com" || dominio[1] == "uol.com.br" || dominio[1] == "ig.com.br" || dominio[1] == "globomail.com" || dominio[1] == "icloud.com" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br" || dominio[1] == "yahoo.com.br"){
+        if (dominio[1] == "gmail.com" || dominio[1] == "gmail.com.br" || dominio[1] == "outlook.com" || dominio[1] == "outlook.com.br" || dominio[1] == "uol.com" || dominio[1] == "uol.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomai.com.br" || dominio[1] == "yahoo.com" || dominio[1] == "yahoo.com.br" || dominio[1] == "bol.com" || dominio[1] == "bol.com.br" || dominio[1] == "ig.com" || dominio[1] == "ig.com.br" || dominio[1] == "globo.com" || dominio[1] == "globo.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomail.com.br"){
             var tipo="B2B";
             console.log(tipo);
         }
@@ -69,7 +70,7 @@ function LoadDate(d){
         }
 
         //Salvar a mensagem no banco
-        gravaLeads(name,email,date_format_str,tipo);
+        gravaLeads(name,email,date_format_str,tipo, ip);
 
         //Alerta de dado enviado
         document.querySelector(".alert").style.display="block";
@@ -88,13 +89,14 @@ function LoadDate(d){
     }
 
 //Funcao grava dados no Firebase
-function gravaLeads(name,email,date_format_str, tipo){
-    var newLeadRef = LeadsRef.push();
+function gravaLeads(name, email, date, tipo, ip) {
+    const newLeadRef = LeadsRef.push();
+    
     newLeadRef.set({
-        name:name,
-        email:email,
-        date:date_format_str,
-        tipo:tipo,
-        //ip:ip,   ??????????????????
+        email,
+        name,
+        ip,
+        tipo,
+        date,        
     })
 }

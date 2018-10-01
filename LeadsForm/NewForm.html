@@ -20,6 +20,8 @@
                 <h3>Assine nossa newsletter</h3> <br>
                 
                 <div class="alert"> Obrigado </div>
+
+                <input id="ip" type="hidden" value="">
                 
                 <div class="form-group">
                     <input type="text" id="name" placeholder="Guilherme Junqueira" required="required" name="nome"/>
@@ -38,22 +40,8 @@
            </form>
         </div>
         
-        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-        
-        <script type="application/javascript">
-        
-            function getIP(json) {
-            document.write("My public IP address is: ", json.ip);
-                var ip = (json.ip);
-                console.log(ip);
-            }
-        </script>
-
-        <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
-        
+        <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>     
         <script src="main.js"></script>
-        
-        
         
     </body>    
    
