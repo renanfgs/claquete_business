@@ -29,7 +29,6 @@ document.getElementById("contactForm").addEventListener("submit",submitForm);
 //funcao pega no formato YYYY-MM-DD hh:mm:ss
 function LoadDate(d){
         d = new Date(d.getTime());
-        console.log(d);
         var date_format_str = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString())+" "+
             
         (d.getHours().toString().length==2?d.getHours().toString():"0"+d.getHours().toString())+":"+
@@ -37,8 +36,6 @@ function LoadDate(d){
         ((parseInt(d.getMinutes())).toString().length==2?(parseInt(d.getMinutes())).toString():"0"+(parseInt(d.getMinutes())).toString())+":"+ 
         
         ((parseInt(d.getSeconds())).toString().length==2?(parseInt(d.getSeconds())).toString():"0"+(parseInt(d.getSeconds())).toString());
-        
-        console.log(date_format_str);
         return date_format_str;
 }
 
@@ -52,7 +49,6 @@ function LoadDate(d){
         
         //Data YYYY-MM-DD hh:mm:ss
         var date_format_str = LoadDate(new Date());
-        console.log(date_format_str);
         
         //pegar o valor de IP aqui ??????????????????
         var ip=getIputVal("ip");
@@ -62,11 +58,9 @@ function LoadDate(d){
         //testa dominios conhecidos para B2B ou B2C
         if (dominio[1] == "gmail.com" || dominio[1] == "gmail.com.br" || dominio[1] == "outlook.com" || dominio[1] == "outlook.com.br" || dominio[1] == "uol.com" || dominio[1] == "uol.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomai.com.br" || dominio[1] == "yahoo.com" || dominio[1] == "yahoo.com.br" || dominio[1] == "bol.com" || dominio[1] == "bol.com.br" || dominio[1] == "ig.com" || dominio[1] == "ig.com.br" || dominio[1] == "globo.com" || dominio[1] == "globo.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomail.com.br"){
             var tipo="B2B";
-            console.log(tipo);
         }
         else {
-            var tipo="B2C";
-              console.log(tipo); 
+            var tipo="B2C"; 
         }
 
         //Salvar a mensagem no banco
