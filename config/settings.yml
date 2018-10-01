@@ -1,0 +1,9 @@
+default: &default
+  project_id: <% ENV[GCLOUD_PROJECT_ID] %>
+  gcs_bucket: <% ENV[GCLOUD_PROJECT_BUCKET] %>
+
+development:
+  <<: *default
+
+production:
+  <<: *default
