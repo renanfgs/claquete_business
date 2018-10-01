@@ -18,6 +18,25 @@ var config = {
 //listen
 document.getElementById("contactForm").addEventListener("submit",submitForm);
 
+//funcao pega no formato YYYY-MM-DD hh:mm:ss
+function pegaData(d){
+        d = new Date(d.getTime());
+        console.log(d);
+        var date_format_str = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString())+" "+
+            
+        (d.getHours().toString().length==2?d.getHours().toString():"0"+d.getHours().toString())+":"+
+        
+        ((parseInt(d.getMinutes())).toString().length==2?(parseInt(d.getMinutes())).toString():"0"+(parseInt(d.getMinutes())).toString())+":"+ 
+        
+        ((parseInt(d.getSeconds())).toString().length==2?(parseInt(d.getSeconds())).toString():"0"+(parseInt(d.getSeconds())).toString());
+        //arrumar os segundos
+        
+        
+        console.log(date_format_str);
+        return date_format_str;
+}
+
+
 //Enviar o formulário
     function submitForm(e){
         e.preventDefault();
@@ -27,9 +46,7 @@ document.getElementById("contactForm").addEventListener("submit",submitForm);
         var email=getIputVal("email");
         
         //Data YYYY-MM-DD hh:mm:ss
-        var d = new Date();
-        d = new Date(d.getTime() - 3000000);
-        var date_format_str = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString())+" "+(d.getHours().toString().length==2?d.getHours().toString():"0"+d.getHours().toString())+":"+((parseInt(d.getMinutes()/5)*5).toString().length==2?(parseInt(d.getMinutes()/5)*5).toString():"0"+(parseInt(d.getMinutes()/5)*5).toString())+":00";
+        var date_format_str = pegaData(new Date());
         console.log(date_format_str);
         
         //pegar o valor de IP aqui ??????????????????
