@@ -19,7 +19,7 @@ var config = {
 document.getElementById("contactForm").addEventListener("submit",submitForm);
 
 //funcao pega no formato YYYY-MM-DD hh:mm:ss
-function pegaData(d){
+function LoadDate(d){
         d = new Date(d.getTime());
         console.log(d);
         var date_format_str = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString())+" "+
@@ -29,7 +29,7 @@ function pegaData(d){
         ((parseInt(d.getMinutes())).toString().length==2?(parseInt(d.getMinutes())).toString():"0"+(parseInt(d.getMinutes())).toString())+":"+ 
         
         ((parseInt(d.getSeconds())).toString().length==2?(parseInt(d.getSeconds())).toString():"0"+(parseInt(d.getSeconds())).toString());
-        //arrumar os segundos
+        
         
         
         console.log(date_format_str);
@@ -46,7 +46,7 @@ function pegaData(d){
         var email=getIputVal("email");
         
         //Data YYYY-MM-DD hh:mm:ss
-        var date_format_str = pegaData(new Date());
+        var date_format_str = LoadDate(new Date());
         console.log(date_format_str);
         
         //pegar o valor de IP aqui ??????????????????
