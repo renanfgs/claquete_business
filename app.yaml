@@ -1,0 +1,19 @@
+runtime: ruby
+env: flex
+entrypoint: bundle exec rails server
+env_variables:
+  SECRET_KEY_BASE: fe93f4582ff28ed8f5f321fb3a21bbd7c6c01174028567b05a8b6bf6ed0adc84a4a1ead79f413f58ef3cb62ab42175f50a0b7a2ef34551633a56baa5d915c15e
+
+beta_settings:
+  cloud_sql_instances: claquete-business
+
+# This sample incurs costs to run on the App Engine flexible environment. 
+# The settings below are to reduce costs during testing and are not appropriate
+# for production use. For more information, see:
+# https://cloud.google.com/appengine/docs/flexible/ruby/configuring-your-app-with-app-yaml
+manual_scaling:
+  instances: 2
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10

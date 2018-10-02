@@ -1,0 +1,18 @@
+<nav>
+  <div class="nav">
+    <%= image_tag "claquete_logo.jpg", class: "logo", alt: "logo"  %>
+  </div>
+</nav>
+
+<div class="wrap-posts">
+  <div class="posts row">
+    <% @blog_posts.each do |blog_post| %>
+      <div class="post-image">
+        <%= image_tag blog_post.image, class: "blog-post-image" %>
+        <p class= "blog-post-title"> <%= blog_post.title %> </p>
+        <div class="link-to-show"><%= link_to "Acessar", blog_posts_path(blog_post), class: "btn btn-warning" %></div>
+      </div>
+    <%end%>
+  </div>
+</div>
+
