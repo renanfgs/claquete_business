@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :blog_posts, only: [:index, :show, :new, :create, :destroy, :edit, :update]
   end
+
+  resources :blog_posts, only: [:index, :show]
 end

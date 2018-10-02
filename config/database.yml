@@ -18,9 +18,15 @@ test:
   port: 5433
   host: localhost
  
+# production:
+#   <<: *default
+#   database: claquete_business_production
+#   username: <%= ENV['CLAQUETE_BUSINESS_DATABASE_USER'] %>
+#   password: <%= ENV['CLAQUETE_BUSINESS_DATABASE_PASSWORD'] %>
+#   host: <%= ENV['CLAQUETE_BUSINESS_DATABASE_URL'] %>
 production:
   <<: *default
   database: claquete_business_production
-  username: <%= ENV['CLAQUETE_BUSINESS_DATABASE_USER'] %>
-  password: <%= ENV['CLAQUETE_BUSINESS_DATABASE_PASSWORD'] %>
-  host: <%= ENV['CLAQUETE_BUSINESS_DATABASE_URL'] %>
+  username: claquete_business
+  password: eDveTZmKkarm6cV
+  host: 35.193.11.228
