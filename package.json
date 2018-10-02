@@ -1,5 +1,8 @@
 {
   "name": "claquete_business",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
 }
