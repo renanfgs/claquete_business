@@ -29,6 +29,14 @@
   overflow:hidden;
   flex-direction: row;
 }
+
+.post-image>img{
+  opacity: 0.6;
+}
+
+img:hover{
+  opacity: 0.3;
+}
 .blog-post-image {
   height: 500px;
   width: 360px;
