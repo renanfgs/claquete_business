@@ -3,7 +3,8 @@ class BlogPostsController < ApplicationController
     @blog_posts = BlogPost.all
   end
 
-  def new
-    @blog_post = BlogPost.new
+  def show
+    @blog_posts = BlogPost.all
+    @blog_post = BlogPost.friendly.find(params[:id])
   end
 end

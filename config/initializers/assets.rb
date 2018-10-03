@@ -12,7 +12,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile += %w( blog_post.css
-                                                  blog_index.css
-                                                  form.css
+                                                  blog_posts/blog_index.css
+                                                  blog_posts/form.css
+                                                  blog_posts/show.css
                                                   main_form.js
                                                   claquete_logo.jpg )

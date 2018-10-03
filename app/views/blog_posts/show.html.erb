@@ -1,0 +1,35 @@
+<div class="show-container">
+  <div class="image-show">
+    <%= image_tag @blog_post.image.variant(resize: "750x400"), class: "show-img" %>
+  </div>
+  <div class="title-show">
+    <%= @blog_post.title %>
+  </div>
+
+  <div class="content-show">
+    <%= @blog_post.content %>
+  </div>
+
+  <div class="about">
+    <p class="about-title">Sobre nós</p>
+    <hr class="line">
+    <p class="about-content">Levantamos as 3 características em comum do grupo, que são Inovação, Otimismo e Ousadia.
+      Também tivemos uma conversa bem descontraída e divertida em que acabamos gerando o nome do grupo.</p>
+  </div>
+
+  <div class="popularity">
+    <p class="title-popular">Mais Populares</p>
+    <hr class="line">
+    <% @blog_posts.sample(3).each do |blog| %>
+    <%= link_to blog_post_path(blog.id) do %>
+    <%= image_tag blog.image.variant(resize: "200x200") %>
+    <p class="popularity-title">
+      <%= blog.title %>
+    </p>
+    <%end%>
+    <%end%>
+  </div>
+</div>
+<div class="form-show">
+  <%= render partial: "blog_posts/shared/leads_form" %>
+</div>

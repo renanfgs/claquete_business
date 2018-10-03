@@ -1,57 +1,17 @@
-<nav>
-  <div class="nav">
-    <%= image_tag "claquete_logo.jpg", class: "logo", alt: "logo"  %>
-  </div>
-</nav>
-
 <div class="wrap-posts">
   <div class="posts row">
-    <% @blog_posts[0..2].each do |blog_post| %>
+    <% @blog_posts.sample(3).each do |blog_post| %>
     <div class="post-image">
       <%= image_tag blog_post.image, class: "blog-post-image" %>
       <p class="blog-post-title">
         <%= blog_post.title %>
       </p>
       <div class="link-to-show">
-        <%= link_to "Acessar", blog_posts_path(blog_post), class: "btn btn-warning" %>
+        <%= link_to "Acessar", blog_post_path(blog_post.id), class: "btn btn-warning" %>
       </div>
     </div>
     <%end%>
   </div>
 </div>
 
-<div class="leads form-body">
-
-  <p class="form-title">Quer aprender como o vídeo pode transformar seu negócio? Baixe seu e-book grátis agora
-    mesmo!</p>
-
-  <form id="contactForm">
-    <input id="ip" type="hidden" value="">
-
-    <div class="form-group">
-      <input type="text" class="form-fields" id="name" placeholder="Nome Completo" required="required" name="nome" />
-    </div>
-
-    <div class="form-group">
-      <input type="email" class="form-fields" id="email" placeholder="Digite seu email" required="required" name="email" />
-    </div>
-
-    <div class="form-group">
-      <select class="form-fields">
-        <option value="" disabled selected>selecione seu e-Book</option>
-        <option value="ebook-1" class="form-fields">e-Book 1</option>
-        <option value="ebook-2" class="form-fields">e-Book 2</option>
-        <option value="ebook-3" class="form-fields">e-Book 3</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-warning btn-form btn-lg">Enviar</button>
-    </div>
-
-  </form>
-</div>
-
-<footer>
-<p>® CLAQUETE BUSINESS 2018 | Todos os direitos reservados</p>
-</footer>
+<%= render partial: "blog_posts/shared/leads_form" %>
