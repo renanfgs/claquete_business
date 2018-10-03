@@ -59,14 +59,15 @@ function submitForm(e) {
 
   //recebe o endereço de email e faz split apos o @
   var dominio = email;
+  var possible_emails = ["gmail.com", "gmail.com.br", "outlook.com", "outlook.com.br", "live.com", "live.com.br",
+       "uol.com", "uol.com.br", "icloud.com", "icloud.com.br", "yahoo.com", "yahoo.com.br",
+       "ig.com", "ig.com.br", "globo.com", "globomail.com.br", "globomail.com", "bol.com.br",
+       "aol.com.br", "hotmail.com", "hotmail.com.br"]
   //split email e dominio
   dominio = dominio.split("@");
 
   //testa dominios conhecidos para B2B ou B2C
-  if (dominio[1].includes(["gmail.com", "gmail.com.br", "outlook.com", "outlook.com.br", "live.com", "live.com.br",
-       "uol.com", "uol.com.br", "icloud.com", "icloud.com.br", "yahoo.com", "yahoo.com.br",
-       "ig.com", "ig.com.br", "globo.com", "globomail.com.br", "globomail.com", "bol.com.br",
-       "aol.com.br", "hotmail.com", "hotmail.com.br"])) {
+  if (possible_emails.includes(dominio[1])) {
     var tipo = "B2C";
   } else {
     var tipo = "B2B";
