@@ -15,5 +15,6 @@ Rails.application.config.assets.precompile += %w( blog_post.css
                                                   blog_posts/blog_index.css
                                                   blog_posts/form.css
                                                   blog_posts/show.css
+                                                  greetings/index.css
                                                   main_form.js
                                                   claquete_logo.jpg )

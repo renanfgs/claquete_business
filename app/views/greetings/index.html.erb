@@ -1,0 +1,7 @@
+<div class="greeting-container">
+  <div class="download">
+    <p class="title-download">Seu download está pronto para ser realizado: <p>
+    <div class="btn btn-warning"><%= link_to "Baixar", {controller: "greetings", action: "download", ebook: @ebook }%></div>
+  </div>
+  <%= image_tag "ebook-download.png", class: "ebook-image" %>
+</div>

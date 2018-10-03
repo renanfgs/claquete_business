@@ -1,0 +1,37 @@
+.greeting-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ebook-image {
+  padding-top: 50px;
+  padding-bottom: 178px;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title-download {
+  height: 80px;
+  width: 500px;
+  color: #6633CC;
+  font-family: Lato;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  max-width: 500px;
+}
+
+.btn {
+  font-size: 34px;
+  text-align: center;
+  border-radius: 50px;
+  color: #FEFEFE;
+  height: 55px;
+  width: 250px;
+}

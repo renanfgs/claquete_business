@@ -18,7 +18,9 @@ var LeadsRef = firebase.database().ref("leads");
   xmlhttp.open("GET", 'https://api.ipify.org?format=json');
   xmlhttp.send();
   xmlhttp.onload = () => {
-    const { ip } = JSON.parse(xmlhttp.response);
+    const {
+      ip
+    } = JSON.parse(xmlhttp.response);
     document.getElementById('ip').value = ip;
   }
 })();
@@ -60,16 +62,17 @@ function submitForm(e) {
   //testa dominios conhecidos para B2B ou B2C
   if (dominio[1] == "gmail.com" || dominio[1] == "gmail.com.br" || dominio[1] == "outlook.com" || dominio[1] == "outlook.com.br" || dominio[1] == "uol.com" || dominio[1] == "uol.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomai.com.br" || dominio[1] == "yahoo.com" || dominio[1] == "yahoo.com.br" || dominio[1] == "bol.com" || dominio[1] == "bol.com.br" || dominio[1] == "ig.com" || dominio[1] == "ig.com.br" || dominio[1] == "globo.com" || dominio[1] == "globo.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomail.com.br") {
     var tipo = "B2B";
-  }
-  else {
+  } else {
     var tipo = "B2C";
   }
 
   //Salvar a mensagem no banco
   gravaLeads(name, email, date_format_str, tipo, ip);
 
-  //Resetar o formulário
-  
+    var allEbooks = document.getElementById("ebooks");
+    var ebook = allEbooks.options[allEbooks.selectedIndex].value;
+    document.getElementById("contactForm").reset();
+    window.location = "/greetings?ebook=" + ebook;
 }
 
 //Função para pegar os valores
