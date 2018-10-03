@@ -72,7 +72,7 @@ function submitForm(e) {
     var allEbooks = document.getElementById("ebooks");
     var ebook = allEbooks.options[allEbooks.selectedIndex].value;
     document.getElementById("contactForm").reset();
-    window.location = "/greetings?ebook=" + ebook;
+    window.location = "/agradecimento?ebook=" + ebook;
 }
 
 //Função para pegar os valores
