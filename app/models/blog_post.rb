@@ -1,5 +1,7 @@
 class BlogPost < ApplicationRecord
   extend FriendlyId
+  include Bootsy::Container
+
 
   has_one_attached :image
   validates :image, presence: true

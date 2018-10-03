@@ -69,7 +69,7 @@ function submitForm(e) {
   gravaLeads(name, email, date_format_str, tipo, ip);
 
   //Resetar o formulário
-  document.getElementById("contactForm").reset();
+  
 }
 
 //Função para pegar os valores

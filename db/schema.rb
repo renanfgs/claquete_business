@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_213634) do
+ActiveRecord::Schema.define(version: 2018_10_03_032742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2018_10_01_213634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+  end
+
+  create_table "bootsy_image_galleries", id: :serial, force: :cascade do |t|
+    t.string "bootsy_resource_type"
+    t.integer "bootsy_resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string "image_file"
+    t.bigint "image_gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_gallery_id"], name: "index_bootsy_images_on_image_gallery_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|

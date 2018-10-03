@@ -51,7 +51,7 @@ module Admin
     private
 
     def blog_post_params
-      params.require(:blog_post).permit(:title, :content, :image)
+      params.require(:blog_post).permit(:title, :content, :image, :bootsy_image_gallery_id)
     end
 
     def find_blog_post
