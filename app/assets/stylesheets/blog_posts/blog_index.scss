@@ -2,6 +2,27 @@
   height: 88px;
   width: 1440px;
   background-color: #6633CC;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.site-name {
+  padding-left: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  color: #FEFEFE;
+  align-items: center;
+}
+
+.donwload-header {
+  padding-left: 800px;
+  font-family: 'Lato', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #FEFEFE;
 }
 
 .logo {
@@ -18,6 +39,8 @@
 }
 
 .wrap-posts {
+  display: flex;
+  flex-wrap: wrap;
   padding-left: 150px;
   padding-right: 150px;
 }
@@ -34,7 +57,7 @@
   opacity: 0.6;
 }
 
-img:hover{
+img:hover {
   opacity: 0.3;
 }
 .blog-post-image {
@@ -51,12 +74,13 @@ img:hover{
 
 .post-image>.blog-post-title {
   height: 176px;
-  width: 320px;
+  width: 380px;
+  max-width: 360px;
   color: #FEFEFE;
   font-family: Lato;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: bold;
-  line-height: 44px;
+  line-height: 36px;
   position: relative;
   top: -250px;
   padding-bottom: 80px;
@@ -77,5 +101,10 @@ img:hover{
 }
 
 a {
-  color: inherit;
+  color:inherit;
+  text-decoration: none;
+}
+
+a:hoover {
+  color: #FEFEFE;
 }
