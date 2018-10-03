@@ -24,7 +24,9 @@ var LeadsRef = firebase.database().ref("leads");
 })();
 
 //listen
-document.getElementById("contactForm").addEventListener("submit", submitForm);
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById("contactForm").addEventListener("submit", submitForm);
+}, false);
 
 //funcao pega no formato YYYY-MM-DD hh:mm:ss
 function LoadDate(d) {
@@ -65,14 +67,6 @@ function submitForm(e) {
 
   //Salvar a mensagem no banco
   gravaLeads(name, email, date_format_str, tipo, ip);
-
-  //Alerta de dado enviado
-  document.querySelector(".alert").style.display = "block";
-
-  //Oculat o alerta após 3 segundos
-  setTimeout(function () {
-    document.querySelector(".alert").style.display = "none";
-  }, 3000);
 
   //Resetar o formulário
   document.getElementById("contactForm").reset();
