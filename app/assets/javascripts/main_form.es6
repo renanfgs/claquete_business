@@ -58,9 +58,18 @@ function submitForm(e) {
   var ip = getIputVal("ip");
 
   //split email e dominio
-  let [, dominio] = email.split("@");
+  //recebe o endereço de email e faz split apos o @
+  var dominio = email;
+  dominio = dominio.split("@");
+
   //testa dominios conhecidos para B2B ou B2C
-  if (dominio[1] == "gmail.com" || dominio[1] == "gmail.com.br" || dominio[1] == "outlook.com" || dominio[1] == "outlook.com.br" || dominio[1] == "uol.com" || dominio[1] == "uol.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomai.com.br" || dominio[1] == "yahoo.com" || dominio[1] == "yahoo.com.br" || dominio[1] == "bol.com" || dominio[1] == "bol.com.br" || dominio[1] == "ig.com" || dominio[1] == "ig.com.br" || dominio[1] == "globo.com" || dominio[1] == "globo.com.br" || dominio[1] == "globomail.com" || dominio[1] == "globomail.com.br") {
+  if (dominio[1] == "gmail.com" || dominio[1] == "gmail.com.br" || dominio[1] == "outlook.com" ||
+    dominio[1] == "outlook.com.br" || dominio[1] == "live.com" || dominio[1] == "live.com.br" ||
+    dominio[1] == "uol.com" || dominio[1] == "uol.com.br" || dominio[1] == "icloud.com" ||
+    dominio[1] == "icloud.com.br" || dominio[1] == "yahoo.com" || dominio[1] == "yahoo.com.br" ||
+    dominio[1] == "ig.com" || dominio[1] == "ig.com.br" || dominio[1] == "globo.com" ||
+    dominio[1] == "globomail.com.br" || dominio[1] == "globomail.com" || dominio[1] == "bol.com.br" ||
+    dominio[1] == "aol.com.br" || dominio[1] == "hotmail.com" || dominio[1] == "hotmail.com.br") {
     var tipo = "B2B";
   } else {
     var tipo = "B2C";
@@ -69,10 +78,10 @@ function submitForm(e) {
   //Salvar a mensagem no banco
   gravaLeads(name, email, date_format_str, tipo, ip);
 
-    var allEbooks = document.getElementById("ebooks");
-    var ebook = allEbooks.options[allEbooks.selectedIndex].value;
-    document.getElementById("contactForm").reset();
-    window.location = "/agradecimento?ebook=" + ebook;
+  var allEbooks = document.getElementById("ebooks");
+  var ebook = allEbooks.options[allEbooks.selectedIndex].value;
+  document.getElementById("contactForm").reset();
+  window.location = "/agradecimento?ebook=" + ebook;
 }
 
 //Função para pegar os valores
