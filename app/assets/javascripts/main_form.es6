@@ -57,22 +57,19 @@ function submitForm(e) {
   //pegar o valor de IP aqui ??????????????????
   var ip = getIputVal("ip");
 
-  //split email e dominio
   //recebe o endereço de email e faz split apos o @
   var dominio = email;
+  //split email e dominio
   dominio = dominio.split("@");
 
   //testa dominios conhecidos para B2B ou B2C
-  if (dominio[1] == "gmail.com" || dominio[1] == "gmail.com.br" || dominio[1] == "outlook.com" ||
-    dominio[1] == "outlook.com.br" || dominio[1] == "live.com" || dominio[1] == "live.com.br" ||
-    dominio[1] == "uol.com" || dominio[1] == "uol.com.br" || dominio[1] == "icloud.com" ||
-    dominio[1] == "icloud.com.br" || dominio[1] == "yahoo.com" || dominio[1] == "yahoo.com.br" ||
-    dominio[1] == "ig.com" || dominio[1] == "ig.com.br" || dominio[1] == "globo.com" ||
-    dominio[1] == "globomail.com.br" || dominio[1] == "globomail.com" || dominio[1] == "bol.com.br" ||
-    dominio[1] == "aol.com.br" || dominio[1] == "hotmail.com" || dominio[1] == "hotmail.com.br") {
-    var tipo = "B2B";
-  } else {
+  if (dominio[1].includes(["gmail.com", "gmail.com.br", "outlook.com", "outlook.com.br", "live.com", "live.com.br",
+       "uol.com", "uol.com.br", "icloud.com", "icloud.com.br", "yahoo.com", "yahoo.com.br",
+       "ig.com", "ig.com.br", "globo.com", "globomail.com.br", "globomail.com", "bol.com.br",
+       "aol.com.br", "hotmail.com", "hotmail.com.br"])) {
     var tipo = "B2C";
+  } else {
+    var tipo = "B2B";
   }
 
   //Salvar a mensagem no banco
