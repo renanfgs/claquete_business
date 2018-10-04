@@ -33,3 +33,53 @@ footer {
   width: 1440px;
   background-color: #23272B;
 }
+
+header{
+  height: 95px;;
+}
+
+header .logo_topo {
+color: #FFF;
+font-size: 45px;
+padding: 25px;
+background:url(../images/logo-header.svg) no-repeat; /* Caminho da imagem e se vai ou não repetir */ 
+text-indent: -9999px; /* Faz o texto do h1, dito no CSS sumir. Mas ainda mantem o nome do site nos mecanismos de busca */
+background-color:#6633CC; 
+background-position: center;
+clear: both;
+}
+
+
+.icones-sociais a{
+  width: 27px;
+  height: 27px;
+  float: left;
+  box-sizing: border-box;
+  text-indent: -9999px;
+  position: relative;
+  top: -60px;
+}
+
+.facebook{
+  background-image: url(../images/facebook.svg);
+  background-size: 27px;
+  margin-left: 60px;
+}
+.instagram{
+  background-image: url(../images/instagram.svg);
+  background-size: 27px;
+  margin-left: 40px;
+}
+
+.botao_ebook{
+ 
+padding: 25px;
+background:url(../img/images/CTA.svg) no-repeat; /* Caminho da imagem e se vai ou não repetir */ 
+text-indent: -9999px; /* Faz o texto do h1, dito no CSS sumir. Mas ainda mantem o nome do site nos mecanismos de busca */
+background-position: right;
+text-indent: -9999px;
+position: relative;
+top: -80px;
+margin-right: 30px;
+background-size: 300px;
+}
